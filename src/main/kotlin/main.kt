@@ -8,9 +8,14 @@ import java.nio.file.Paths
 import kotlin.system.exitProcess
 
 class Klox {
+
+    private var hadError: Boolean = false
+
     fun runFile(path: String) {
         val bytes: ByteArray = Files.readAllBytes(Paths.get(path))
         run(String(bytes, Charset.defaultCharset()))
+
+        if (hadError) exitProcess(65)
     }
 
     fun runPrompt() {
@@ -25,6 +30,7 @@ class Klox {
             }
 
             run(line)
+            hadError = false
 
         }
     }
@@ -36,6 +42,15 @@ class Klox {
         for (token in tokens) {
             println(token)
         }
+    }
+
+    fun error(line: Int, message: String) {
+        report(line, "", message)
+    }
+
+    private fun report(line: Int, where: String, message: String) {
+        println("[line $line] Error $where: $message")
+        hadError = true
     }
 }
 
