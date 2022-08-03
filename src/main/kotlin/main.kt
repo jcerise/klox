@@ -61,7 +61,7 @@ fun main(args: Array<String>) {
         println("Usage: klox [script]")
         exitProcess(64)
     } else if (args.size == 1) {
-        klox.runFile()
+        klox.runFile("")
     } else {
         klox.runPrompt()
     }

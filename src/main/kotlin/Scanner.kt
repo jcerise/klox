@@ -29,6 +29,10 @@ class Scanner(val source: String) {
             '+' -> addToken(TokenType.PLUS)
             ';' -> addToken(TokenType.SEMICOLON)
             '*' -> addToken(TokenType.STAR)
+            '!' -> addToken(if (match('=')) TokenType.BANG_EQUAL else TokenType.BANG)
+            '=' -> addToken(if (match('=')) TokenType.EQUAL_EQUAL else TokenType.EQUAL)
+            '<' -> addToken(if (match('=')) TokenType.LESS_EQUAL else TokenType.LESS)
+            '>' -> addToken(if (match('=')) TokenType.GREATER_EQUAL else TokenType.GREATER)
             else -> Klox().error(line, "unexpected character.")
         }
     }
@@ -48,5 +52,13 @@ class Scanner(val source: String) {
 
     private fun isAtEnd(): Boolean {
         return current >= source.length
+    }
+
+    private fun match(expected: Char): Boolean {
+        if (isAtEnd()) return false
+        if (source[current] != expected) return false
+
+        current++
+        return true
     }
 }
