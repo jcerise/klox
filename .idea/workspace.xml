@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88650bfe-ec00-4b23-9f8f-3ab2fc5de5d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ScannerTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Scanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Scanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ScannerTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/ScannerTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ScannerTest">
+  <component name="RunManager" selected="Gradle.ScannerTest.testScanTokensStrings">
     <configuration name="ScannerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -156,8 +155,32 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ScannerTest.testScanTokensStrings" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ScannerTest.testScanTokensStrings&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ScannerTest.testScanTokensStrings" />
         <item itemvalue="Gradle.ScannerTest" />
         <item itemvalue="Gradle.ScannerTest.testScanTokensMultiChar" />
         <item itemvalue="Gradle.ScannerTest.testScanTokensError" />
@@ -174,7 +197,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659160021339</updated>
       <workItem from="1659160023399" duration="6189000" />
-      <workItem from="1659333538356" duration="6827000" />
+      <workItem from="1659333538356" duration="10042000" />
     </task>
     <servers />
   </component>
@@ -204,6 +227,11 @@
           <url>file://$PROJECT_DIR$/src/test/kotlin/ScannerTest.kt</url>
           <line>12</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/test/kotlin/ScannerTest.kt</url>
+          <line>65</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

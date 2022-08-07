@@ -57,4 +57,19 @@ internal class ScannerTest {
             assertEquals(testCase.key, tokens[0].type)
         }
     }
+
+    @Test
+    fun testScanTokensStrings() {
+        val kloxLine: String = "\"test\" \"test2\" \"test3\""
+        val testScanner: Scanner = Scanner(kloxLine)
+
+        val tokens: MutableList<Token> = testScanner.scanTokens()
+        assertEquals(4, tokens.size)
+        assertEquals(TokenType.STRING, tokens[0].type)
+        assertEquals("test", tokens[0].literal)
+        assertEquals(TokenType.STRING, tokens[1].type)
+        assertEquals("test2", tokens[1].literal)
+        assertEquals(TokenType.STRING, tokens[2].type)
+        assertEquals("test3", tokens[2].literal)
+    }
 }

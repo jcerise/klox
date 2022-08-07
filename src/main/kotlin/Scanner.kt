@@ -33,12 +33,28 @@ class Scanner(val source: String) {
             '=' -> addToken(if (match('=')) TokenType.EQUAL_EQUAL else TokenType.EQUAL)
             '<' -> addToken(if (match('=')) TokenType.LESS_EQUAL else TokenType.LESS)
             '>' -> addToken(if (match('=')) TokenType.GREATER_EQUAL else TokenType.GREATER)
+            '/' ->
+                if (match('/')) {
+                    while (peek() != '\n' && !isAtEnd()) advance()
+                } else {
+                    addToken(TokenType.SLASH)
+                }
+            ' ' -> {}
+            '\r' -> {}
+            '\t' -> {}
+            '\n' -> line++
+            '"' -> string()
             else -> Klox().error(line, "unexpected character.")
         }
     }
 
     private fun advance(): Char {
         return source[current++]
+    }
+
+    private fun peek(): Char {
+        if (isAtEnd()) return '0'
+        return source[current]
     }
 
     private fun addToken(type: TokenType) {
@@ -60,5 +76,21 @@ class Scanner(val source: String) {
 
         current++
         return true
+    }
+
+    private fun string() {
+        while (peek() != '"' && !isAtEnd()) {
+            if (peek() == '\n') line++
+            advance()
+        }
+
+        if (isAtEnd()) {
+            // Unterminated string case
+            Klox().error(line, "unterminated string.")
+        }
+
+        advance()
+        val value: String = source.substring(start + 1, current - 1)
+        addToken(TokenType.STRING, value)
     }
 }
