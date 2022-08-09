@@ -87,4 +87,18 @@ internal class ScannerTest {
         assertEquals(TokenType.NUMBER, tokens[2].type)
         assertEquals(12.34, tokens[2].literal)
     }
+
+    @Test
+    fun testScanTokensIdentifiers() {
+        val kloxLine: String = "if else or class orchid"
+        val testScanner: Scanner = Scanner(kloxLine)
+
+        val tokens: MutableList<Token> = testScanner.scanTokens()
+        assertEquals(6, tokens.size)
+        assertEquals(TokenType.IF, tokens[0].type)
+        assertEquals(TokenType.ELSE, tokens[1].type)
+        assertEquals(TokenType.OR, tokens[2].type)
+        assertEquals(TokenType.CLASS, tokens[3].type)
+        assertEquals(TokenType.IDENTIFIER, tokens[4].type)
+    }
 }

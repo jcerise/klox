@@ -7,6 +7,25 @@ class Scanner(val source: String) {
     private var current: Int = 0
     private var line: Int = 1
 
+    private val keywords = hashMapOf<String, TokenType>(
+        "if" to TokenType.IF,
+        "else" to TokenType.ELSE,
+        "or" to TokenType.OR,
+        "and" to TokenType.AND,
+        "true" to TokenType.TRUE,
+        "false" to TokenType.FALSE,
+        "class" to TokenType.CLASS,
+        "super" to TokenType.SUPER,
+        "this" to TokenType.THIS,
+        "fun" to TokenType.FUN,
+        "return" to TokenType.RETURN,
+        "var" to TokenType.VAR,
+        "print" to TokenType.PRINT,
+        "for" to TokenType.FOR,
+        "while" to TokenType.WHILE,
+        "nil" to TokenType.NIL,
+    )
+
     fun scanTokens(): MutableList<Token> {
         while (!isAtEnd()) {
             start = current
@@ -47,6 +66,8 @@ class Scanner(val source: String) {
             else ->
                 if (isDigit(c)) {
                     number()
+                } else if (isAlpha(c)) {
+                    identifier()
                 } else {
                     Klox().error(line, "unexpected character.")
                 }
@@ -108,6 +129,16 @@ class Scanner(val source: String) {
         return c in '0'..'9'
     }
 
+    private fun isAlpha(c: Char): Boolean {
+        return (c in 'a'..'z') ||
+                (c in 'A'..'Z') ||
+                (c == '_')
+    }
+
+    private fun isAlphaNumeric(c: Char): Boolean {
+        return isAlpha(c) || isDigit(c)
+    }
+
     private fun number() {
         // Consume the integral part of the number
         while( isDigit(peek())) {
@@ -123,5 +154,14 @@ class Scanner(val source: String) {
         }
 
         addToken(TokenType.NUMBER, source.substring(start, current).toDouble())
+    }
+
+    private fun identifier() {
+        while (isAlphaNumeric(peek())) advance()
+
+        val text: String = source.substring(start, current)
+        val type: TokenType = try { keywords[text]!! } catch (e: Exception) { TokenType.IDENTIFIER }
+
+        addToken(type)
     }
 }

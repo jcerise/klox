@@ -86,7 +86,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ScannerTest.testScanTokensError" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ScannerTest.testScanTokensIdentifiers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -99,7 +99,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ScannerTest.testScanTokensError&quot;" />
+            <option value="&quot;ScannerTest.testScanTokensIdentifiers&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -181,10 +181,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ScannerTest" />
+        <item itemvalue="Gradle.ScannerTest.testScanTokensIdentifiers" />
         <item itemvalue="Gradle.ScannerTest.testScanTokensNumbers" />
         <item itemvalue="Gradle.ScannerTest.testScanTokensStrings" />
         <item itemvalue="Gradle.ScannerTest.testScanTokensMultiChar" />
-        <item itemvalue="Gradle.ScannerTest.testScanTokensError" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +198,7 @@
       <updated>1659160021339</updated>
       <workItem from="1659160023399" duration="6189000" />
       <workItem from="1659333538356" duration="10323000" />
-      <workItem from="1659891881041" duration="2754000" />
+      <workItem from="1659891881041" duration="6393000" />
     </task>
     <servers />
   </component>
@@ -240,14 +240,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Scanner.kt</url>
-          <line>47</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Scanner.kt</url>
-          <line>112</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/test/kotlin/ScannerTest.kt</url>
+          <line>95</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
