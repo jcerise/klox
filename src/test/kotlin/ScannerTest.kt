@@ -74,6 +74,17 @@ internal class ScannerTest {
     }
 
     @Test
+    fun testScanTokensLineComment() {
+        val kloxLine: String = "// This is a comment"
+        val testScanner: Scanner = Scanner(kloxLine)
+
+        val tokens: MutableList<Token> = testScanner.scanTokens()
+        // Comments get completely ignored by the tokenizer, meaning we should have an EOF token and nothing else
+        assertEquals(1, tokens.size)
+        assertEquals(TokenType.EOF, tokens[0].type)
+    }
+
+    @Test
     fun testScanTokensNumbers() {
         val kloxLine: String = "1234 1.234 12.34"
         val testScanner: Scanner = Scanner(kloxLine)
@@ -100,5 +111,21 @@ internal class ScannerTest {
         assertEquals(TokenType.OR, tokens[2].type)
         assertEquals(TokenType.CLASS, tokens[3].type)
         assertEquals(TokenType.IDENTIFIER, tokens[4].type)
+    }
+
+    @Test
+    fun testScanTokesnBlockComment() {
+        val kloxLine: String = """
+            /*
+            This is a block comment
+            that is quite long
+            and keeps going
+            * / * / * / 
+            */
+        """.trimIndent()
+        val testScanner: Scanner = Scanner(kloxLine)
+
+        val tokens: MutableList<Token> = testScanner.scanTokens()
+        assertEquals(1, tokens.size)
     }
 }
